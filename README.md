@@ -1,96 +1,41 @@
-# Predicting-Student-Performance-Using-Machine-Learning
+# Predict CO2 Emissions in Rwanda
 
-This project aims to predict student performance based on various factors such as gender, ethnicity, parental level of education, lunch type, test preparation course, and exam scores. The machine learning model trained on a dataset of student information can provide insights into predicting a student's performance in mathematics.
+The objective of this challenge is to create machine learning models that use open-source emissions data (from Sentinel-5P satellite observations) to predict carbon emissions.
+
+Approximately 497 unique locations were selected from multiple areas in Rwanda, with a distribution around farm lands, cities and power plants. The data for this is split by time; the years 2019 - 2021 are included in the training data, and the task is to predict the CO2 emissions data for 2022 through November.
 
 ## Table of Contents
-- [Introduction](#introduction)
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
 - [Dataset](#dataset)
 - [Model Training](#model-training)
 - [Results](#results)
 - [Contributing](#contributing)
 - [License](#license)
-- [Project Structure](#project-structure)
-- [Author](#author)
-
-## Introduction
-
-In today's educational landscape, understanding the factors that contribute to a student's academic performance is crucial for educators, parents, and policymakers. This project leverages machine learning techniques to predict a student's performance in mathematics based on various factors. By providing accurate predictions, this tool can help identify students who may need additional support and tailor educational strategies accordingly.
-
-**Note: This Project is for Educational Purposes Only**
-
-The Student Exam Performance Predictor project is developed for educational purposes to showcase the application of machine learning techniques in predicting student performance. The results obtained from this project are based on a specific dataset and machine learning model, and should not be considered as definitive or accurate predictions for real-world scenarios. The primary goal of this project is to demonstrate the end-to-end process of developing a machine learning model and provide insights into the factors influencing student performance.
-
-
+- [Project Structure](#project-structure)- [Author](#author)
+ 
 ## Features
-- Predicts student performance in mathematics based on multiple factors.
-- Provides insights into the influence of gender, ethnicity, parental level of education, lunch type, and test preparation course on student performance.
-- User-friendly interface for inputting student information and obtaining predictions.
+Seven main features were extracted weekly from Sentinel-5P from January 2019 to November 2022. Each feature (Sulphur Dioxide, Carbon Monoxide, etc) contain sub features such as column_number_density which is the vertical column density at ground level, calculated using the DOAS technique. You can read more about each feature in the below links, including how they are measured and variable definitions. You are given the values of these features in the test set and your goal to predict CO2 emissions using time information as well as these features.
 
-## Installation
-
-1. Clone the repository: `git clone https://github.com/skprasad117/Predicting-Student-Performance-Using-Machine-Learning.git`
-2. Navigate to the project directory: `cd Predicting-Student-Performance-Using-Machine-Learning`
-3. Install the required dependencies: `pip install -r requirements.txt`
-
-## Usage
-
-1. Run the application: `python app.py`
-2. Access the web interface in your browser at `http://localhost:5000`
-3. Fill in the student information and submit the form to obtain the predicted math score.
+Sulphur Dioxide - https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_SO2?hl=en
+Carbon Monoxide - https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_CO?hl=en
+Nitrogen Dioxide - https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_NO2?hl=en
+Formaldehyde - https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_HCHO?hl=en
+UV Aerosol Index - https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_AER_AI?hl=en
+Ozone - https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_O3?hl=en
+Cloud - https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_OFFL_L3_CLOUD?hl=en
 
 ## Dataset
 
-The dataset used for training the machine learning model is sourced from [Kaggle - Students Performance in Exams](https://www.kaggle.com/datasets/spscientist/students-performance-in-exams?datasetId=74977). It contains information about students' demographics, parental education, lunch type, test preparation course, and their corresponding math scores.
+The dataset used for training the machine learning model is sourced from https://www.kaggle.com/competitions/playground-series-s3e20/data. 
 
 ## Model Training
 
-The machine learning model is trained using a supervised learning algorithm, such as a decision tree or random forest, to predict the math score based on the input features. The dataset is split into training and testing sets to evaluate the model's performance.
+The machine learning model is trained using a supervised learning algorithm, such random forest, to predict the CO2 emission based on the input features. The dataset is split into training and testing sets to evaluate the model's performance.
 
 ## Results
 
-The trained model achieved an accuracy of 85% in predicting student performance in mathematics. The results demonstrate the significant impact of factors such as parental education, test preparation course, and lunch type on student scores.
+The trained model achieved a RMSE of 22.4 in predicting CO2 emission. Improved the RMSE score by using Stacked Ensemble Learning technique with RMSE of 9.2 on train data.
 
-## Contributing
-
-Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Project Structure
-
-The project has the following structure:
-    
-    ├───artifacts
-    ├───catboost_info
-    │ └───learn
-    ├───Notebook
-    │ └───data
-    ├───src
-    │ ├───components
-    │ └───pipeline
-    ├───static
-    │ └───css
-    └───templates
-
-- `artifacts`: This directory contains artifacts generated during the model training process.
-- `catboost_info`: This directory stores CatBoost model information.
-- `Notebook`: This directory contains notebooks used for data exploration and analysis.
-- `src`: This directory contains the source code for the project.
-  - `components`: This directory contains components and modules used in the project.
-  - `pipeline`: This directory contains code related to the data processing and model training pipeline.
-- `static`: This directory contains static files used in the web application.
-  - `css`: This directory contains CSS files for styling the web application.
-- `templates`: This directory contains HTML templates used in the web application.
-
-## Author
-Sanjay Kumar Prasad, You can also visit my GitHub profile: @skprasad117
-
-Feel free to reach out with any questions or feedback regarding the project.
 
 
 
